@@ -1,10 +1,11 @@
-# Hydrotik
+# Test Project
 
 ## Branded automotive advertorial experience for a retailer using:
 
 - **Next.js** Node/React framework
 - **TypesScript** Strongly typed JavaScript
 - **SASS** CSS Preprocessor
+- **Tailwinds** Tailwinds CSS framework
 - **Lighthouse** Performance and a11y tool
 - lodash, moment.js
 
