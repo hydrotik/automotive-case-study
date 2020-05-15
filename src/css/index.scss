@@ -13,9 +13,109 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+// @import './fonts.scss';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
 /* Custom */
 @import './button.scss';
 
+body {
+  font-family: 'amazon_emberregular';
+}
+
+.slick-prev, .slick-next {
+    opacity: 1;
+
+    &:before {
+        opacity: 1;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+.slick-next {
+    right: 4%;
+}
+
+.slick-prev {
+    left: 4%;
+    z-index: 1;
+    opacity: 1;
+}
+.slick-next {
+    right: 4%;
+}
+.hero-container {
+    max-height: 500px;
+}
+
+
+/***************
+ * Arrow 
+ ***************/
+
+.arrow {
+    $size: 30px;
+    $width: 3px;
+  
+    width: $size / 1.414;
+    height: $size / 1.414 * 2;
+    
+    & span,
+    &:before,
+    &:after {
+      background: #fff;
+      content: '';
+      display: block;
+      width: $size;
+      height: $width;
+      position: absolute;
+      top: calc(50% - (#{$width} / 2));
+    }
+      
+    &:before {
+      transform: rotate(-45deg);
+    }
+    &:after {
+      transform: rotate(45deg);
+    }
+    
+    & span {
+      width: 0;
+    }
+    &:hover span {
+      width: $size * 1.414;
+    }
+    
+    @each $direction in 'left' 'right' {
+      &.arrow--#{$direction} {
+        & span,
+        &:before,
+        &:after {
+          #{$direction}: 0;
+          transform-origin: #{$direction} 50%;
+        }
+  
+        &:before,
+        &:after {
+          transition: #{$direction} 0.3s 0.05s;
+        }
+  
+        & span {
+          transition: width 0.3s, #{$direction} 0.3s 0.05s;
+        }
+  
+        &:hover {
+          & span,
+          &:before,
+          &:after {
+            #{$direction}: $size / 1.414 * -1;
+          }
+        }
+      }
+    }
+  }

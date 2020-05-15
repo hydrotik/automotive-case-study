@@ -8,26 +8,21 @@
 const webpack = require('webpack');
 const purgecss = require('@fullhuman/postcss-purgecss');
 const optimizedImages = require('next-optimized-images');
-const withSass = require('@zeit/next-sass');
+const withFonts = require('next-fonts');
 
 const isProd = (process.env.NODE_ENV || 'production') === 'production';
 const isGHProd = (process.env.GHPAGES_ENV) === 'true';
 const isVercel = (process.env.VERCEL_ENV) === 'true';
-const assetPrefix = ((isProd && isVercel) || !isProd) ? '' : '/hydrotik';
+const assetPrefix = ((isProd && isVercel) || !isProd) ? '' : '/automotive-case-study';
 
 console.log(`production: ${isProd}`);
 console.log(`GH Pages: ${isGHProd}`);
 console.log(`Vercel: ${isVercel}`);
 
-module.exports = {
+module.exports = withFonts({
 	'process.env.BACKEND_URL': assetPrefix,
 	exportPathMap: () => ({
 		'/': { page: '/' },
-		'/about': { page: '/about' },
-		'/visualization': { page: '/visualization' },
-		'/terms': { page: '/terms' },
-		'/privacy': { page: '/privacy' },
-
 	}),
 	assetPrefix,
 	webpack(config, { dev, isServer }) {
@@ -51,7 +46,15 @@ module.exports = {
 				},
 			],
 		});
-
+		config.module.rules.push({
+			test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+			use: {
+				loader: 'url-loader',
+				options: {
+					limit: 100000,
+				},
+			},
+		});
 		return config;
 	},
-};
+});

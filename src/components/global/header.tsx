@@ -17,6 +17,118 @@ function Header(): JSX.Element {
 				<meta name="keywords" content="These are keywords for the project" />
 				<meta name="author" content="Author will show up here" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+				<style>
+					{`
+					@font-face {
+						font-family: 'amazon_emberbold';
+						src: url('/fonts/amazonember_bd-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_bd-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberbold_italic';
+						src: url('/fonts/amazonember_bdit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_bdit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberheavy';
+						src: url('/fonts/amazonember_he-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_he-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberheavy_italic';
+						src: url('/fonts/amazonember_heit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_heit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberlight';
+						src: url('/fonts/amazonember_lt-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_lt-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberlight_italic';
+						src: url('/fonts/amazonember_ltit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_ltit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_embermedium';
+						src: url('/fonts/amazonember_md-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_md-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_embermedium_italic';
+						src: url('/fonts/amazonember_mdit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_mdit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberregular';
+						src: url('/fonts/amazonember_rg-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_rg-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberitalic';
+						src: url('/fonts/amazonember_rgit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_rgit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+
+					@font-face {
+						font-family: 'amazon_emberthin';
+						src: url('/fonts/amazonember_th-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_th-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+					
+					@font-face {
+						font-family: 'amazon_emberthin_italic';
+						src: url('/fonts/amazonember_thit-webfont.woff2') format('woff2'),
+							url('/fonts/amazonember_thit-webfont.woff') format('woff');
+						font-weight: normal;
+						font-style: normal;
+					
+					}
+					`}
+				</style>
 			</Head>
 
 			<header className="flex flex-wrap md:flex-no-wrap items-center justify-between bg-coolblack">

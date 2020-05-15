@@ -8,6 +8,9 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	theme: {
+		maxHeight: {
+			hero: '50%',
+		},
 		extend: {
 			colors: {
 				coolblack: '#131921',
