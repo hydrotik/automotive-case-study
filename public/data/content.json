@@ -1,0 +1,51 @@
+{
+    "content" : {
+        "vehicles" : [
+            {
+                "model" : "SE",
+                "price" : 68650,
+                "shortdescription" : "The SE offers a 3.0-liter, Inline 6 Turbocharged Gas or 3.0-liter TDV6 Diesel engine, delivering high performance with impressive efficiency.",
+                "thumbimage" : "636510886283785101XB.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/se/index.html",
+                "buildurl" : "https://buildyour.landrover.com/lr2/r/engine/_/en_us/l494/?_ga=2.32258430.1191623808.1590098719-1003461618.1590098719",
+                "accessories" : ""
+            },
+            {
+                "model" : "HSE",
+                "price" : 74250,
+                "shortdescription" : "The HSE builds on all of the standard features of the SE and includes an even broader array of interior and exterior accoutrements from the top down.",
+                "thumbimage" : "636681047629647633AK.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/hse/index.html",
+                "buildurl" : "https://buildyour.landrover.com/lr2/r/engine/_/en_us/l494/?_ga=2.32258430.1191623808.1590098719-1003461618.1590098719",
+                "accessories" : ""
+            },
+            {
+                "model" : "HST",
+                "price" : 82950,
+                "shortdescription" : "A Black contrast roof and Black Pack add to the vehicle’s sportier feel. Featuring stylish Windsor leather seating with suedecloth bolsters, combined with matching steering wheel and gearshift.",
+                "thumbimage" : "636801563968392561QF.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/hst/index.html",
+                "buildurl" : "https://buildyour.landrover.com/lr2/r/engine/_/en_us/l494/?_ga=2.32258430.1191623808.1590098719-1003461618.1590098719",
+                "accessories" : ""
+            }
+        ],
+        "features" : [
+            {
+                "title" : "Key Fob Case",
+                "price" : 12.79,
+                "thumbimage" : "https://images-na.ssl-images-amazon.com/images/I/71D1axSHjQL._AC_SX425_.jpg",
+                "url" : "https://www.amazon.com/Shell-Replacement-Rover-Range-Evoque/dp/B07TTCTC7J/ref=sr_1_1_sspa?dchild=1&keywords=Range+Rover+SE&qid=1590099826&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzQTA4RUcwWDBVUVM1JmVuY3J5cHRlZElkPUEwMzU1NzU4MTYwN1pEQ0RFUFREUCZlbmNyeXB0ZWRBZElkPUEwMTQ3MzkyMUhBRkRIRDU4VVAzTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=",
+                "prime" : true,
+                "inventory" : 7
+            },
+            {
+                "title" : "24\" Wheels",
+                "price" : 1279.20,
+                "thumbimage" : "https://images-na.ssl-images-amazon.com/images/I/41LR4nanwLL._AC_.jpg",
+                "url" : "https://www.amazon.com/Wheels-RANGE-ROVER-SUPERCHARGED-24x10/dp/B086Z6CBRR/ref=sr_1_4?dchild=1&keywords=Range+Rover+SE&qid=1590099826&sr=8-4",
+                "prime" : false,
+                "inventory" : 19
+            }
+        ]
+    }
+}
