@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const purgecss = require('@fullhuman/postcss-purgecss');
 const optimizedImages = require('next-optimized-images');
 const withFonts = require('next-fonts');
+const env = require('dotenv').config();
 
 const isProd = (process.env.NODE_ENV || 'production') === 'production';
 const isGHProd = (process.env.GHPAGES_ENV) === 'true';
@@ -20,6 +21,9 @@ console.log(`GH Pages: ${isGHProd}`);
 console.log(`Vercel: ${isVercel}`);
 
 module.exports = withFonts({
+	env: {
+		GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+	},
 	'process.env.BACKEND_URL': assetPrefix,
 	exportPathMap: () => ({
 		'/': { page: '/' },

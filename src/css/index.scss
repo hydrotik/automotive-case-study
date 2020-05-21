@@ -26,6 +26,54 @@ body {
   font-family: 'amazon_emberregular';
 }
 
+.search-input {
+  height: 40px;
+  color: #333333;
+  outline: none;
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+}
+
+#bicycling-example {
+  margin-top: 5%;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.hero-container {
+  height: 500px;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+.slick-track {
+  display: flex;
+}
+.slick-track .slick-slide {
+  display: flex;
+  height: auto;
+}
+
+.slick-slide > div {
+  width: 100%;
+}
+
+.slick-dots-custom {
+  font-size: 18px;
+  font-family: 'amazon_emberheavy';
+}
+
 .slick-prev, .slick-next {
     opacity: 1;
 
@@ -49,9 +97,7 @@ body {
 .slick-next {
     right: 4%;
 }
-.hero-container {
-    max-height: 500px;
-}
+
 
 
 /***************

@@ -1,11 +1,24 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 
 function Header(): JSX.Element {
 	const [isExpanded, toggleExpansion] = useState(false);
 	const userFirstName = 'John';
+
+	let sInput = '';
+
+	const handleSearchClick = (): void => {
+		window.location.href = `https://www.amazon.com/s?k=${sInput}`;
+	};
+
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const handleChange = (e: any): void => {
+		const { value } = e.target;
+		sInput = value;
+	};
+
 	return (
 		<header className="bg-gray-900">
 
@@ -136,20 +149,30 @@ function Header(): JSX.Element {
 				<Link href={`${process.env.BACKEND_URL}/`}>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 					<a className="text-white text-xl">
-						<img src="images/logo.png" className="pd-0" alt="Amazon Logo" />
+						<img src="images/logo.png" width="220" className="pd-0" alt="Amazon Logo" />
 					</a>
 				</Link>
 
-				<img src="images/search_left.png" className="pd-0" alt="Amazon Logo" />
+				<img src="images/search_left.png" width="75" alt="Amazon Logo" />
 
-				<img src="images/search_bg.png" className="pd-0 flex-grow" alt="Amazon Logo" />
+				<input onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input" alt="Amazon Logo" />
 
-				<img src="images/search_right.png" className="pd-0" alt="Amazon Logo" />
+				<button
+					onClick={handleSearchClick}
+					onKeyDown={handleSearchClick}
+				>
+					<img
+						src="images/search_right.png"
+						width="74"
+						alt="Amazon Logo"
+					/>
+				</button>
 
 				<img
-					className="md:flex flex-col md:flex-row md:items-center md:justify-right text-sm w-full md:w-auto"
+					className="md:flex flex-col md:flex-row md:items-center md:justify-right"
 					src="images/nav_right.png"
 					alt="Amazon navigation"
+					width="350"
 				/>
 
 			</header>
@@ -162,7 +185,7 @@ function Header(): JSX.Element {
 						<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
 					</svg>
 				</button>
-				<img src="images/subhead_left.png" className="mr-2" alt="Amazon navigation" />
+				<img src="images/subhead_left.png" width="220" className="mr-2" alt="Amazon navigation" />
 				<ul className="text-xs justify-left flex-grow items-left flex-no-wrap flex overflow-hidden whitespace-no-wrap">
 					{[
 						{ title: 'Fresh', route: `${process.env.BACKEND_URL}/` },
@@ -187,7 +210,7 @@ function Header(): JSX.Element {
 						</li>
 					))}
 				</ul>
-				<img src="images/subhead_right.png" alt="Amazon navigation" className="md:flex flex-col md:flex-row md:items-center md:justify-right text-sm w-full md:w-auto" />
+				<img src="images/subhead_right.png" width="227" alt="Amazon promo navigation" className="md:flex flex-col md:justify-right" />
 			</nav>
 		</header>
 	);
