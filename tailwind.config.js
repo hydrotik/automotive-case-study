@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable quotes */
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -8,6 +9,14 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	theme: {
+		minHeight: {
+			'0': '0',
+			'1/4': '25%',
+			'1/2': '50%',
+			'3/4': '75%',
+			'full': '100%',
+			'16': '16rem',
+		},
 		maxHeight: {
 			hero: '50%',
 		},

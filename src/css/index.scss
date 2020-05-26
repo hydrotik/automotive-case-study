@@ -13,9 +13,6 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import "~slick-carousel/slick/slick.css"; 
-@import "~slick-carousel/slick/slick-theme.css";
-// @import './fonts.scss';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
@@ -24,6 +21,25 @@
 
 body {
   font-family: 'amazon_emberregular';
+}
+
+.brand-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 8rem;
+  background-color: rgba(255, 255, 255, .5);
+  padding: 1rem 2rem;
+  z-index: 10;
+}
+
+.input-reset {
+  outline: none;
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
 }
 
 .search-input {
@@ -45,6 +61,20 @@ body {
 
 .hero-container {
   height: 500px;
+}
+
+.model-card-content {
+  min-height: 16rem;
+}
+
+.feature-card-img {
+  width: auto;
+  max-height: 12rem;
+  /* margin: auto; */
+}
+
+.hero-tagline {
+  box-shadow: 0px 0px 5px #fff;
 }
 
 a[href^="http://maps.google.com/maps"]{display:none !important}

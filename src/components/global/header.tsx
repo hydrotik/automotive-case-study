@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import Head from 'next/head';
 
 
 function Header(): JSX.Element {
-	const [isExpanded, toggleExpansion] = useState(false);
+	// const [isExpanded, toggleExpansion] = useState(false);
 	const userFirstName = 'John';
 
 	let sInput = '';
@@ -30,76 +30,12 @@ function Header(): JSX.Element {
 				<meta name="keywords" content="These are keywords for the project" />
 				<meta name="author" content="Author will show up here" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 				<style>
 					{`
 					@font-face {
 						font-family: 'amazon_emberbold';
-						src: url('/fonts/amazonember_bd-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_bd-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberbold_italic';
-						src: url('/fonts/amazonember_bdit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_bdit-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberheavy';
-						src: url('/fonts/amazonember_he-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_he-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberheavy_italic';
-						src: url('/fonts/amazonember_heit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_heit-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberlight';
-						src: url('/fonts/amazonember_lt-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_lt-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberlight_italic';
-						src: url('/fonts/amazonember_ltit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_ltit-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_embermedium';
-						src: url('/fonts/amazonember_md-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_md-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_embermedium_italic';
-						src: url('/fonts/amazonember_mdit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_mdit-webfont.woff') format('woff');
+						src: url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_bd-46b91bda68161c14e554a779643ef4957431987b._V2_.woff2') format('woff2'),
+							url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_bd-46b91bda68161c14e554a779643ef4957431987b._V2_.woff') format('woff');
 						font-weight: normal;
 						font-style: normal;
 					
@@ -107,35 +43,8 @@ function Header(): JSX.Element {
 
 					@font-face {
 						font-family: 'amazon_emberregular';
-						src: url('/fonts/amazonember_rg-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_rg-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberitalic';
-						src: url('/fonts/amazonember_rgit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_rgit-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-
-					@font-face {
-						font-family: 'amazon_emberthin';
-						src: url('/fonts/amazonember_th-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_th-webfont.woff') format('woff');
-						font-weight: normal;
-						font-style: normal;
-					
-					}
-					
-					@font-face {
-						font-family: 'amazon_emberthin_italic';
-						src: url('/fonts/amazonember_thit-webfont.woff2') format('woff2'),
-							url('/fonts/amazonember_thit-webfont.woff') format('woff');
+						src: url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_rg-cc7ebaa05a2cd3b02c0929ac0475a44ab30b7efa._V2_.woff2') format('woff2'),
+							url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_rg-cc7ebaa05a2cd3b02c0929ac0475a44ab30b7efa._V2_.woff') format('woff');
 						font-weight: normal;
 						font-style: normal;
 					
@@ -144,18 +53,18 @@ function Header(): JSX.Element {
 				</style>
 			</Head>
 
-			<header className="flex flex-wrap md:flex-no-wrap items-center justify-between bg-coolblack">
+			<header className="flex flex-wrap flex-no-wrap items-center md:justify-between bg-coolblack">
 
 				<Link href={`${process.env.BACKEND_URL}/`}>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-					<a className="text-white text-xl">
-						<img src="images/logo.png" width="220" className="pd-0" alt="Amazon Logo" />
+					<a className="text-white text-xl mr-0 md:mr-8">
+						<img src="images/logo.png" width="175" className="pd-0 min-w-1/2" alt="Amazon Logo" />
 					</a>
 				</Link>
 
-				<img src="images/search_left.png" width="75" alt="Amazon Logo" />
+				<img src="images/search_left.png" width="75" alt="Amazon Logo" className="" />
 
-				<input onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input" alt="Amazon Logo" />
+				<input onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input min-w-0" alt="Amazon Logo" />
 
 				<button
 					onClick={handleSearchClick}
@@ -169,7 +78,7 @@ function Header(): JSX.Element {
 				</button>
 
 				<img
-					className="md:flex flex-col md:flex-row md:items-center md:justify-right"
+					className="justify-right items-left flex-no-wrap lg:flex hidden lg:visible"
 					src="images/nav_right.png"
 					alt="Amazon navigation"
 					width="350"
@@ -179,14 +88,8 @@ function Header(): JSX.Element {
 
 
 			<nav className="flex flex-wrap md:flex-no-wrap items-center justify-between bg-bluebeacon">
-				<button aria-label="Home Link" className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white" onClick={(): void => toggleExpansion(!isExpanded)}>
-					<svg role="img" className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-						<title>Menu</title>
-						<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-					</svg>
-				</button>
 				<img src="images/subhead_left.png" width="220" className="mr-2" alt="Amazon navigation" />
-				<ul className="text-xs justify-left flex-grow items-left flex-no-wrap flex overflow-hidden whitespace-no-wrap">
+				<ul className="text-xs justify-left flex-grow items-left flex-no-wrap lg:flex overflow-hidden whitespace-no-wrap hidden lg:visible">
 					{[
 						{ title: 'Fresh', route: `${process.env.BACKEND_URL}/` },
 						{ title: 'Whole Foods', route: `${process.env.BACKEND_URL}/` },
