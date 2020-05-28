@@ -2,7 +2,14 @@ import React from 'react';
 import Slider from 'react-slick';
 import CSS from 'csstype';
 import dynamic from 'next/dynamic';
+import {
+	Twitter,
+	Facebook,
+	Pinterest,
+} from 'react-social-sharing';
+import StarRatingComponent from 'react-star-rating-component';
 import Layout from '../components/global/layout';
+import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
 
 const Map = dynamic(() => import('../components/ui/Map'), { ssr: false });
@@ -21,26 +28,6 @@ type HomeState = {
 	vehicles: CarModelProps[];
 	features: FeatureProps[];
 }
-
-// type PlacesProps = {
-// 	geometry: {
-// 		location: {
-// 			lat: number;
-// 			lng: number;
-// 		};
-// 		viewport: {
-// 			northeast: {
-// 				lat: number;
-// 				lng: number;
-// 			};
-// 			southwest: {
-// 				lat: number;
-// 				lng: number;
-// 			};
-// 		};
-// 	};
-// 	name: string;
-// }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SampleNextArrow = (props: any): JSX.Element => {
@@ -100,10 +87,10 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 		accessories,
 	} = props;
 	return (
-		<div className="md:w-1/3 md:px-2 mb-20 md:mb-0">
+		<div className="w-full lg:w-1/3 md:px-2 mb-20 md:mb-10 lg:mb-0">
 			<div className="md:rounded md:overflow-hidden md:shadow-lg">
 				<img className="w-full" src={thumbimage} alt={model} />
-				<div className="px-6 py-4 md:min-h-16 mb-4 md:mb-0">
+				<div className="px-6 py-4 lg:min-h-16 mb-4 md:mb-0">
 					<div className="font-bold text-xl mb-2">{ model }</div>
 					<p className="text-gray-700 text-base mb-4">
 						{ shortdescription }
@@ -111,9 +98,9 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 					<div className="text-gray-600 text-sm mb-2">{ `Starts at $${price}` }</div>
 				</div>
 				<div className="px-6 md:py-4">
-					<button data-reference={exploreurl} className="mb-2 block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Explore</button>
-					<button data-reference={buildurl} className="mb-2 block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Build Your own</button>
-					<button data-reference={accessories} className="mb-2 block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{ `${model} Accessories on Amazon` }</button>
+					<a href={exploreurl} target="_blank" rel="noreferrer" className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Explore</a>
+					<a href={buildurl} target="_blank" rel="noreferrer" className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Build Your own</a>
+					<a href={accessories} className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">{ `${model} Accessories on Amazon` }</a>
 				</div>
 			</div>
 		</div>
@@ -126,6 +113,9 @@ type FeatureProps = {
 	price: number | string;
 	thumbimage: string;
 	url: string;
+	inventory: number;
+	rating: number;
+	reviews: number;
 }
 
 const FeatureItem = (props: FeatureProps): JSX.Element => {
@@ -134,17 +124,52 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 		price,
 		thumbimage,
 		url,
+		inventory,
+		rating,
+		reviews,
 	} = props;
+
+	const [pref, suf] = (price as string).split('.');
+
 	return (
-		<div className="w-1/3 px-2">
-			<div className="">
-				<img className="w-full feature-card-img" src={thumbimage} alt={title} />
-				<div className="py-4">
-					<div className="font-bold text-xl mb-2">{ title }</div>
-					<div className="mb-2">{ `${price}` }</div>
+		<div className="w-full p-6 sm:w-1/2 md:w-1/2 lg:w-1/4 flex flex-col justify-center items-center max-w-sm mx-auto my-8">
+			<div
+				style={{
+					backgroundImage: `url("${thumbimage}")`,
+				}}
+				className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"
+			/>
+			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden bg-opacity-75">
+				<div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">{ title }</div>
+				<div className="flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
+					{/* <h2 className="text-gray-800 font-bold ">{ `${price}` }</h2> */}
+					<span
+						className="inline-block font-weight-400 text-black text-2xl"
+						aria-label={`$${price}`}
+					>
+						<span className="align-top">
+							<span className="relative text-xs align-top top-4">$</span>
+							<span className="relative align-bottom">{ pref }</span>
+							<span className="hidden">.</span>
+							<span className="relative text-xs align-top top-4">{ suf }</span>
+						</span>
+					</span>
+					<button data-reference={url} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Add to cart</button>
 				</div>
-				<div className="py-4">
-					<button data-reference={url} className="mb-2 block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Add To Cart</button>
+				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
+					<span className="align-top relative">
+						<StarRatingComponent
+							name="rate1"
+							editing={false}
+							starColor="#ffb400"
+							emptyStarColor="#aaaaaa"
+							renderStarIcon={(): JSX.Element => <span>★</span>}
+							starCount={5}
+							value={rating}
+						/>
+						<span className="relative bottom-2">{ ` ${reviews}`}</span>
+					</span>
+					<span className="text-xs relative bottom-1">{ `${inventory} available` }</span>
 				</div>
 			</div>
 		</div>
@@ -329,7 +354,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 					<div className="hero-container">
 						<Slider {...settings}>
 							<div className="relative">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636796262266615614VS.jpg'})`, backgroundPosition: 'right' }}>
+								<div style={{ ...divStyle, backgroundImage: `url(${'images/636796262266615614VS.jpg'})` }} className="bg-right">
 									<div className="flex content-end flex-wrap">
 										<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
 											<h2 className="text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
@@ -343,7 +368,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 								</div>
 							</div>
 							<div className="">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636681046005411490KM.jpg'})`, backgroundPosition: 'center' }}>
+								<div style={{ ...divStyle, backgroundImage: `url(${'images/636681046005411490KM.jpg'})` }} className="bg-center">
 									<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end">
 										<div className="lg:w-1/2 hidden lg:visible" />
 										<div className="lg:w-1/2 pl-16 sm:pl-24 md:pl-24 lg:pl-0 mt-24 lg:mt-0 text-right lg:mr-1/3 w-full h-full">
@@ -355,16 +380,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 											/>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div className="">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636796262266615614VS.jpg'})`, backgroundPosition: 'center' }}>
-									Slide 3
-								</div>
-							</div>
-							<div className="">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636681046005411490KM.jpg'})`, backgroundPosition: 'center' }}>
-									Slide 4
 								</div>
 							</div>
 						</Slider>
@@ -380,19 +395,15 @@ class Home extends React.Component<HomeProps, HomeState> {
 							</h1>
 						</div>
 
-						<div className="flex mb-24 max-w-md justify-center items-center m-auto">
-							<div className="w-2/3 px-2">
-								<input className="input-reset bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="email" placeholder="Your email" />
-							</div>
-							<div className="w-1/3 px-2">
-								<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-									Sign Up
-								</button>
-							</div>
-						</div>
+						<EmailSignup />
+
+					</div>
+
+
+					<div className="md:w-full md:max-w-6xl md:p-4 md:mx-auto md:px-8 md:py-16 md:justify-center md:items-center">
 
 						<div className="md:px-2">
-							<div className="md:flex md:-mx-2 md:mb-12">
+							<div className="lg:flex md:-mx-2 md:mb-12">
 								{
 									vehicles && vehicles.map((item: CarModelProps) => (
 										<CarModelItem
@@ -411,40 +422,58 @@ class Home extends React.Component<HomeProps, HomeState> {
 						</div>
 					</div>
 
-
 					<div>
-						<div className="md:flex mb-24 md:justify-center items-center bg-gray-200">
-							<div className="md:w-2/3">
-								<img src="images/637251633853208257CN.jpg" alt="Range Rover Gear" />
+						<div className="bg-gray-200 mb-12">
+							<div className="">
+								<img src="images/637251633853208257CN.jpg" width="100%" alt="Range Rover Gear" />
 							</div>
-							<div className="p-8 md:w-1/3 px-2 py-1/2 text-center">
-								Get Range Rover branded gear on Amazon
-								<br />
-								<button type="submit" className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+							<div className="p-8 text-center">
+								<p className="mb-8">Get official Range Rover branded gear on Amazon</p>
+								<a
+									href="https://www.amazon.com/stores/Land+Rover/page/897DDE0C-BEFA-4079-ACE5-08525C8AEA2A"
+									className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+								>
 									Shop Now
-								</button>
+								</a>
 							</div>
 						</div>
 					</div>
 
-					<div className="w-full max-w-6xl p-4 mx-auto md:px-8 md:py-16 justify-center items-center">
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 justify-center items-center mb-24">
 
 						<div className="px-2">
-							<div className="flex -mx-2">
+							<div className="flex -mx-2 flex-wrap">
 								{
 									features && features.map((item: FeatureProps) => (
 										<FeatureItem
 											key={item.key}
 											title={item.title}
-											price={currency(item.price)}
+											price={currency(item.price, false)}
 											thumbimage={item.thumbimage}
 											url={item.url}
+											inventory={item.inventory}
+											rating={item.rating}
+											reviews={item.reviews}
 										/>
 									))
 								}
 							</div>
 						</div>
 					</div>
+
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 text-center align-center mb-32">
+						<h2 className="mb-4">Share</h2>
+						<h3 className="mb-4">Share this page with your friends.</h3>
+						<div className="px-2">
+							<div className="flex justify-center items-center text-4xl">
+								<Twitter simple link="https://www.amazon.com/range-rover-test-drive" />
+								<Facebook simple link="https://www.amazon.com/range-rover-test-drive" />
+								<Pinterest simple link="https://www.amazon.com/range-rover-test-drive" />
+							</div>
+						</div>
+					</div>
+
+
 				</div>
 			</Layout>
 		);

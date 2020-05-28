@@ -53,22 +53,23 @@ function Header(): JSX.Element {
 				</style>
 			</Head>
 
-			<header className="flex flex-wrap flex-no-wrap items-center md:justify-between bg-coolblack">
+			<header className="flex flex-no-wrap items-center md:justify-between bg-coolblack">
 
 				<Link href={`${process.env.BACKEND_URL}/`}>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-					<a className="text-white text-xl mr-0 md:mr-8">
+					<a className="text-white text-xl mr-0 md:mr-10">
 						<img src="images/logo.png" width="175" className="pd-0 min-w-1/2" alt="Amazon Logo" />
 					</a>
 				</Link>
 
-				<img src="images/search_left.png" width="75" alt="Amazon Logo" className="" />
+				<img src="images/search_left.png" width="75" alt="Amazon Logo" className="flex-none flex-shrink-0" />
 
 				<input onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input min-w-0" alt="Amazon Logo" />
 
 				<button
 					onClick={handleSearchClick}
 					onKeyDown={handleSearchClick}
+					className="flex-none flex-shrink-0"
 				>
 					<img
 						src="images/search_right.png"
@@ -87,9 +88,9 @@ function Header(): JSX.Element {
 			</header>
 
 
-			<nav className="flex flex-wrap md:flex-no-wrap items-center justify-between bg-bluebeacon">
+			<nav className="flex flex-no-wrap items-center justify-left bg-bluebeacon">
 				<img src="images/subhead_left.png" width="220" className="mr-2" alt="Amazon navigation" />
-				<ul className="text-xs justify-left flex-grow items-left flex-no-wrap lg:flex overflow-hidden whitespace-no-wrap hidden lg:visible">
+				<ul className="h-4 block text-xs whitespace-no-wrap overflow-hidden overflow-y">
 					{[
 						{ title: 'Fresh', route: `${process.env.BACKEND_URL}/` },
 						{ title: 'Whole Foods', route: `${process.env.BACKEND_URL}/` },
@@ -105,14 +106,18 @@ function Header(): JSX.Element {
 						{ title: 'New Releases', route: `${process.env.BACKEND_URL}/` },
 						{ title: 'Gift Cards', route: `${process.env.BACKEND_URL}/` },
 					].map((navigationItem) => (
-						<li className="mr-6 justify-around" key={navigationItem.title}>
+						<li className="mr-6 justify-around float-left" key={navigationItem.title}>
 							<Link href={navigationItem.route}>
 								{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 								<a className="block text-subgray whitespace-no-wrap" href="">{navigationItem.title}</a>
 							</Link>
 						</li>
 					))}
+					<li className="mr-6 justify-around float-left clearfix">
+						<a href="/gp/help/customer/accessibility" aria-label="Click to call our Disability Customer Support line, or reach us directly at 1-888-283-1678" className="nav-hidden-aria hidden">Disability Customer Support</a>
+					</li>
 				</ul>
+				<div className="flex-grow" />
 				<img src="images/subhead_right.png" width="227" alt="Amazon promo navigation" className="md:flex flex-col md:justify-right" />
 			</nav>
 		</header>
