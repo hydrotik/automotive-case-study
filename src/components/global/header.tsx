@@ -53,7 +53,7 @@ function Header(): JSX.Element {
 				</style>
 			</Head>
 
-			<header className="flex flex-no-wrap items-center md:justify-between bg-coolblack">
+			<header className="relative top-0 z-50 flex flex-no-wrap items-center md:justify-between bg-coolblack">
 
 				<Link href={`${process.env.BACKEND_URL}/`}>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -88,7 +88,7 @@ function Header(): JSX.Element {
 			</header>
 
 
-			<nav className="flex flex-no-wrap items-center justify-left bg-bluebeacon">
+			<nav className="relative top-0 z-50 flex flex-no-wrap items-center justify-left bg-bluebeacon">
 				<img src="images/subhead_left.png" width="220" className="mr-2" alt="Amazon navigation" />
 				<ul className="h-4 block text-xs whitespace-no-wrap overflow-hidden overflow-y">
 					{[

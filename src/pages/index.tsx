@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import Slider from 'react-slick';
 import CSS from 'csstype';
 import dynamic from 'next/dynamic';
@@ -88,7 +88,7 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 	} = props;
 	return (
 		<div className="w-full lg:w-1/3 md:px-2 mb-20 md:mb-10 lg:mb-0">
-			<div className="md:rounded md:overflow-hidden md:shadow-lg">
+			<div className="md:rounded md:overflow-hidden md:shadow-lg bg-white">
 				<img className="w-full" src={thumbimage} alt={model} />
 				<div className="px-6 py-4 lg:min-h-16 mb-4 md:mb-0">
 					<div className="font-bold text-xl mb-2">{ model }</div>
@@ -139,8 +139,12 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				}}
 				className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"
 			/>
-			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden bg-opacity-75">
-				<div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">{ title }</div>
+			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
+				<div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+					<a href={url}>
+						{ title }
+					</a>
+				</div>
 				<div className="flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
 					{/* <h2 className="text-gray-800 font-bold ">{ `${price}` }</h2> */}
 					<span
@@ -154,7 +158,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 							<span className="relative text-xs align-top top-4">{ suf }</span>
 						</span>
 					</span>
-					<button data-reference={url} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Add to cart</button>
+					<a href={url} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Add to cart</a>
 				</div>
 				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
 					<span className="align-top relative">
@@ -204,6 +208,10 @@ const TestCTA = (props: TestCTAProps): JSX.Element => {
 		</>
 	);
 };
+interface RefObject<T> {
+	// immutable
+	readonly current: T | null;
+}
 
 interface PositionCallback {
 	(position: LocationResponseProps): void;
@@ -220,7 +228,11 @@ type LocationResponseProps = {
 	};
 }
 
+// const urlParallax = (name: string, wrap = false): string => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`;
+
 class Home extends React.Component<HomeProps, HomeState> {
+	private parallax = createRef();
+
 	constructor(props: HomeProps) {
 		super(props);
 
@@ -237,8 +249,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 	}
 
 	async componentDidMount(): Promise<void> {
-		// const apiDirectionsURL = `https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=${process.env.GOOGLE_API_KEY}`
-
 		this.getLocationData((lng: number, lat: number) => {
 			const apiPlaceURL = `/api/places?lng=${lng}&lat=${lat}`;
 			this.getNearestDealerData(apiPlaceURL);
@@ -345,9 +355,10 @@ class Home extends React.Component<HomeProps, HomeState> {
 			features,
 		} = this.state;
 
+
 		return (
 			<Layout>
-				<div className="relative">
+				<div className="content-container relative">
 					<div className="top-0 left-0 lg:ml-32 z-10 absolute py-4 px-8 bg-white bg-opacity-50">
 						<img src="images/rr_marker.png" width="100" alt="Land Rover Logo" />
 					</div>
@@ -425,9 +436,13 @@ class Home extends React.Component<HomeProps, HomeState> {
 					<div>
 						<div className="bg-gray-200 mb-12">
 							<div className="">
-								<img src="images/637251633853208257CN.jpg" width="100%" alt="Range Rover Gear" />
+								<a
+									href="https://www.amazon.com/LEGO-Technic-Defender-Building-Overbox/dp/B07VFDRT8B/"
+								>
+									<img src="images/xlr_LEGO_NewDefender90_profile_D.jpg.pagespeed.ic.5mc54arMVF.jpg" width="100%" alt="Range Rover Gear" />
+								</a>
 							</div>
-							<div className="p-8 text-center">
+							<div className="p-8 text-center py-16">
 								<p className="mb-8">Get official Range Rover branded gear on Amazon</p>
 								<a
 									href="https://www.amazon.com/stores/Land+Rover/page/897DDE0C-BEFA-4079-ACE5-08525C8AEA2A"
@@ -461,7 +476,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						</div>
 					</div>
 
-					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 text-center align-center mb-32">
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 text-center align-center mb-48">
 						<h2 className="mb-4">Share</h2>
 						<h3 className="mb-4">Share this page with your friends.</h3>
 						<div className="px-2">
@@ -472,8 +487,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 							</div>
 						</div>
 					</div>
-
-
 				</div>
 			</Layout>
 		);

@@ -22,6 +22,7 @@ module.exports = {
 		inset: {
 			'2': '.2rem',
 			'4': '.4rem',
+			'98': '98px',
 		},
 		maxHeight: {
 			hero: '50%',
