@@ -7,6 +7,7 @@ import {
 	Facebook,
 	Pinterest,
 } from 'react-social-sharing';
+// import { Spring, animated } from 'react-spring';
 import StarRatingComponent from 'react-star-rating-component';
 import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
@@ -88,7 +89,7 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 	} = props;
 	return (
 		<div className="w-full lg:w-1/3 md:px-2 mb-20 md:mb-10 lg:mb-0">
-			<div className="md:rounded md:overflow-hidden md:shadow-lg bg-white">
+			<div className="md:overflow-hidden md:shadow-lg bg-white">
 				<img className="w-full" src={thumbimage} alt={model} />
 				<div className="px-6 py-4 lg:min-h-16 mb-4 md:mb-0">
 					<div className="font-bold text-xl mb-2">{ model }</div>
@@ -98,9 +99,9 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 					<div className="text-gray-600 text-sm mb-2">{ `Starts at $${price}` }</div>
 				</div>
 				<div className="px-6 md:py-4">
-					<a href={exploreurl} target="_blank" rel="noreferrer" className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Explore</a>
-					<a href={buildurl} target="_blank" rel="noreferrer" className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Build Your own</a>
-					<a href={accessories} className="hover:bg-blue-700 hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">{ `${model} Accessories on Amazon` }</a>
+					<a href={exploreurl} target="_blank" rel="noreferrer" className="hover:bg-forestgreendark hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Explore</a>
+					<a href={buildurl} target="_blank" rel="noreferrer" className="hover:bg-forestgreendark hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Build Your own</a>
+					<a href={accessories} className="hover:bg-forestgreendark hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">{ `${model} Accessories on Amazon` }</a>
 				</div>
 			</div>
 		</div>
@@ -137,9 +138,9 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				style={{
 					backgroundImage: `url("${thumbimage}")`,
 				}}
-				className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"
+				className="bg-gray-300 h-64 w-full shadow-md bg-cover bg-center"
 			/>
-			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
+			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg overflow-hidden">
 				<div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
 					<a href={url}>
 						{ title }
@@ -152,13 +153,13 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 						aria-label={`$${price}`}
 					>
 						<span className="align-top">
-							<span className="relative text-xs align-top top-4">$</span>
+							<span className="relative text-xs align-top top-3/5">$</span>
 							<span className="relative align-bottom">{ pref }</span>
 							<span className="hidden">.</span>
-							<span className="relative text-xs align-top top-4">{ suf }</span>
+							<span className="relative text-xs align-top top-3/5">{ suf }</span>
 						</span>
 					</span>
-					<a href={url} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Add to cart</a>
+					<a href={url} className="mt-2 bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-1 px-4 rounded">Add to cart</a>
 				</div>
 				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
 					<span className="align-top relative">
@@ -171,9 +172,9 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 							starCount={5}
 							value={rating}
 						/>
-						<span className="relative bottom-2">{ ` ${reviews}`}</span>
+						<span className="relative bottom-2/5">{ ` ${reviews}`}</span>
 					</span>
-					<span className="text-xs relative bottom-1">{ `${inventory} available` }</span>
+					<span className="text-xs relative bottom-1/5">{ `${inventory} available` }</span>
 				</div>
 			</div>
 		</div>
@@ -446,7 +447,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 								<p className="mb-8">Get official Range Rover branded gear on Amazon</p>
 								<a
 									href="https://www.amazon.com/stores/Land+Rover/page/897DDE0C-BEFA-4079-ACE5-08525C8AEA2A"
-									className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+									className="mt-4 bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-2 px-4 rounded"
 								>
 									Shop Now
 								</a>
@@ -454,7 +455,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						</div>
 					</div>
 
-					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 justify-center items-center mb-24">
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 justify-center items-center mb-20">
 
 						<div className="px-2">
 							<div className="flex -mx-2 flex-wrap">
@@ -487,6 +488,36 @@ class Home extends React.Component<HomeProps, HomeState> {
 							</div>
 						</div>
 					</div>
+
+					{/* <Spring
+						native
+						from={{ y: 0 }}
+						to={{ y: 20 }}
+					>
+						{({ y }): JSX.Element => (
+							<animated.div
+								style={{
+									// If you can, use plain animated values like always, ...
+									// You would do that in all cases where values "just fit"
+									transform: y?.interpolate((dy) => `translateY(${dy}px`),
+									backgroundImage: `url(${'images/15232292419_af49a4e0f3_o.jpg'})`,
+									backgroundRepeat: 'no-repeat',
+									backgroundSize: 'cover',
+									width: '100%',
+									height: '100%',
+									zIndex: -1,
+									position: 'absolute',
+									top: 0,
+									bottom: 0,
+									left: 0,
+									right: 0,
+									opacity: '15%',
+								}}
+							>
+								Hello
+							</animated.div>
+						)}
+					</Spring> */}
 				</div>
 			</Layout>
 		);

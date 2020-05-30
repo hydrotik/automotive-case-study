@@ -66,7 +66,7 @@ class EmailSignup extends React.Component<EmailSignupProps, EmailSignupState> {
 			placeholder,
 		} = this.state;
 
-		const baseClass = 'bg-white outline-none focus:border border-gray-300 border focus:border-blue-400 rounded-lg py-2 px-4 block w-full leading-normal';
+		const baseClass = 'bg-white outline-none focus:border border-gray-300 border focus:border-forestgreenlight rounded-lg py-2 px-4 block w-full leading-normal';
 		const inputClass = (emailError) ? `${baseClass} border-red-600` : `${baseClass} border-gray-300`;
 
 		if (!emailError && registered) {
@@ -104,7 +104,7 @@ class EmailSignup extends React.Component<EmailSignupProps, EmailSignupState> {
 				<div className="w-1/3 px-2">
 					<button
 						type="submit"
-						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none border-none"
+						className="bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-2 px-4 rounded w-full focus:outline-none border-none"
 					>
 						Sign Up
 					</button>

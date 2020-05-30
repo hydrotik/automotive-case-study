@@ -20,8 +20,10 @@ module.exports = {
 			'32': '32rem',
 		},
 		inset: {
+			'1/5': '1px',
 			'2': '.2rem',
-			'4': '.4rem',
+			'2/5': '.25rem',
+			'3/5': '.35rem',
 			'98': '98px',
 		},
 		maxHeight: {
@@ -32,6 +34,9 @@ module.exports = {
 				coolblack: '#131921',
 				bluebeacon: '#232f3e',
 				subgray: '#cccccc',
+				forestgreenlight: '#0d6634',
+				forestgreendark: '#124629',
+				forestgreendarkest: '#0c2b12',
 			},
 		},
 		textIndent: (theme, { negative }) => ({

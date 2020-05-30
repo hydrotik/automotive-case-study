@@ -37,7 +37,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
 		const date = (new Date()).getFullYear();
 
 		return (
-			<footer className="bg-gray-900 w-full">
+			<footer className="bg-forestgreendarkest w-full">
 				<ul className="flex items-center justify-center max-w-4xl mx-auto p-4 md:p-8 text-xs text-white">
 					<li className="text-center">
 						Range Rover is a registered trademark of Jaguar Land Rover North America, LLC.
