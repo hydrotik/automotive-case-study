@@ -13,6 +13,13 @@ import {
 	TwitterShareButton,
 	TwitterIcon,
 } from 'react-share';
+import {
+	CarouselProvider,
+	Slider,
+	Slide,
+	ButtonBack,
+	ButtonNext,
+} from 'pure-react-carousel';
 import ReactLoading from 'react-loading';
 // import { Spring, animated } from 'react-spring';
 import StarRatingComponent from 'react-star-rating-component';
@@ -21,7 +28,7 @@ import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
 
-const Slider = dynamic(() => import('react-slick'), { ssr: false });
+// const Slider = dynamic(() => import('react-slick'), { ssr: false });
 const Map = dynamic(() => import('../components/ui/Map'), { ssr: false });
 
 
@@ -393,17 +400,17 @@ class Home extends React.Component<HomeProps, HomeState> {
 	}
 
 	render(): JSX.Element {
-		const settings = {
-			accessibility: false,
-			dots: false,
-			infinite: true,
-			speed: 500,
-			autoplay: false,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			nextArrow: <SampleNextArrow />,
-			prevArrow: <SamplePrevArrow />,
-		};
+		// const settings = {
+		// 	accessibility: false,
+		// 	dots: false,
+		// 	infinite: true,
+		// 	speed: 500,
+		// 	autoplay: false,
+		// 	slidesToShow: 1,
+		// 	slidesToScroll: 1,
+		// 	nextArrow: <SampleNextArrow />,
+		// 	prevArrow: <SamplePrevArrow />,
+		// };
 
 		const {
 			tagline,
@@ -428,7 +435,68 @@ class Home extends React.Component<HomeProps, HomeState> {
 						/> */}
 					</div>
 					<div className="hero-container">
-						<Slider {...settings}>
+
+						<CarouselProvider
+							naturalSlideWidth={100}
+							naturalSlideHeight={125}
+							totalSlides={3}
+						>
+							<Slider>
+								<Slide index={0}>
+									<div className="relative">
+										<div
+											style={{
+												backgroundPosition: 'right',
+												backgroundRepeat: 'no-repeat',
+												backgroundSize: 'cover',
+												boxSizing: 'border-box',
+												width: '100%',
+												height: '500px',
+												backgroundColor: '#434343',
+												backgroundImage: `url(${'images/636796262266615614VS.jpg'})`,
+											}}
+										>
+											<div className="flex content-end flex-wrap">
+												<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
+													<h2 className="text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
+														Sign up for a contactless
+														<br />
+														test drive.
+													</h2>
+												</div>
+												<div className="lg:w-1/2 text-center hidden lg:visible" />
+											</div>
+										</div>
+									</div>
+								</Slide>
+								<Slide index={1}>
+									<div className="">
+										<div
+											style={{
+												backgroundPosition: 'center',
+												backgroundRepeat: 'no-repeat',
+												backgroundSize: 'cover',
+												boxSizing: 'border-box',
+												width: '100%',
+												height: '500px',
+												backgroundColor: '#434343',
+												backgroundImage: `url(${'images/636681046005411490KM.jpg'})`,
+											}}
+										>
+											<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end h-full">
+												<div className="lg:w-1/2 hidden lg:visible" />
+
+												{ this.handleMapState()}
+											</div>
+										</div>
+									</div>
+								</Slide>
+							</Slider>
+							<ButtonBack><SamplePrevArrow /></ButtonBack>
+							<ButtonNext><SampleNextArrow /></ButtonNext>
+						</CarouselProvider>
+
+						{/* <Slider {...settings}>
 							<div className="relative">
 								<div
 									style={{
@@ -444,7 +512,10 @@ class Home extends React.Component<HomeProps, HomeState> {
 								>
 									<div className="flex content-end flex-wrap">
 										<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
-											<h2 className="text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
+											<h2
+												className="text-black lg:bg-white py-8 p-8 lg:mt-24
+												lg:ml-8 lg:bg-opacity-50 lg:w-2/3"
+											>
 												Sign up for a contactless
 												<br />
 												test drive.
@@ -467,14 +538,17 @@ class Home extends React.Component<HomeProps, HomeState> {
 										backgroundImage: `url(${'images/636681046005411490KM.jpg'})`,
 									}}
 								>
-									<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end h-full">
+									<div
+										className="m-auto flex content-end flex-wrap
+										lg:ml-48 lg:p-12 lg:justify-end h-full"
+									>
 										<div className="lg:w-1/2 hidden lg:visible" />
 
 										{ this.handleMapState()}
 									</div>
 								</div>
 							</div>
-						</Slider>
+						</Slider> */}
 					</div>
 
 					<div className="w-full max-w-6xl p-4 mx-auto md:px-8 md:py-16 justify-center items-center">
