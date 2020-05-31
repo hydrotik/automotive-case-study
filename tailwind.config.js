@@ -41,7 +41,7 @@ module.exports = {
 			colors: {
 				coolblack: '#131921',
 				bluebeacon: '#232f3e',
-				subgray: '#cccccc',
+				subgray: '#DDDDDD',
 				forestgreenlight: '#0d6634',
 				forestgreendark: '#124629',
 				forestgreendarkest: '#0c2b12',
