@@ -1,6 +1,5 @@
 import React, { createRef } from 'react';
 import dynamic from 'next/dynamic';
-import Slider from 'react-slick';
 // import {
 // 	Twitter,
 // 	Facebook,
@@ -22,6 +21,7 @@ import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
 
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
 const Map = dynamic(() => import('../components/ui/Map'), { ssr: false });
 
 
