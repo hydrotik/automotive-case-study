@@ -8,6 +8,13 @@ const indentTheme = require("tailwindcss-text-indent");
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
+	purge: {
+		enabled: false,
+		content: [
+			'./src/**/*.html',
+			'./src/**/*.tsx',
+		],
+	},
 	theme: {
 		minHeight: {
 			'0': '0',

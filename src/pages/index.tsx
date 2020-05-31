@@ -7,6 +7,7 @@ import {
 	Facebook,
 	Pinterest,
 } from 'react-social-sharing';
+import ReactLoading from 'react-loading';
 // import { Spring, animated } from 'react-spring';
 // import StarRatingComponent from 'react-star-rating-component';
 import StarRatings from 'react-star-ratings';
@@ -149,7 +150,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 						{ title }
 					</a>
 				</div>
-				<div className="flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
+				<div className="flex items-center justify-between py-2 px-3 bg-gray-200 bg-opacity-50">
 					{/* <h2 className="text-gray-800 font-bold ">{ `${price}` }</h2> */}
 					<span
 						className="inline-block font-weight-400 text-black text-2xl"
@@ -164,7 +165,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 					</span>
 					<a href={url} className="mt-2 bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-1 px-4 rounded">Add to cart</a>
 				</div>
-				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
+				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-200 bg-opacity-50">
 					<span className="align-top relative">
 						{/* <StarRatingComponent
 							name="rate1"
@@ -295,7 +296,13 @@ class Home extends React.Component<HomeProps, HomeState> {
 		if (!mapActive && loadingMap) {
 			return (
 				<div className="lg:w-1/2 text-center w-full h-full flex justify-center">
-					<span className="lg:mr-24 shadow-xl text-white my-auto flex-none inline-block align-middle">Loading...</span>
+					<ReactLoading
+						type="spinningBubbles"
+						color="#FFFFFF"
+						height="15%"
+						width="15%"
+						className="lg:mr-24 shadow-xl text-white my-auto flex-none inline-block align-middle"
+					/>
 				</div>
 			);
 		}
