@@ -2,15 +2,23 @@ import React, { createRef } from 'react';
 import Slider from 'react-slick';
 import CSS from 'csstype';
 import dynamic from 'next/dynamic';
+// import {
+// 	Twitter,
+// 	Facebook,
+// 	Pinterest,
+// } from 'react-social-sharing';
 import {
-	Twitter,
-	Facebook,
-	Pinterest,
-} from 'react-social-sharing';
+	FacebookShareButton,
+	FacebookIcon,
+	PinterestShareButton,
+	PinterestIcon,
+	TwitterShareButton,
+	TwitterIcon,
+} from 'react-share';
 import ReactLoading from 'react-loading';
 // import { Spring, animated } from 'react-spring';
-// import StarRatingComponent from 'react-star-rating-component';
-import StarRatings from 'react-star-ratings';
+import StarRatingComponent from 'react-star-rating-component';
+// import StarRatings from 'react-star-ratings';
 import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
@@ -145,7 +153,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				className="bg-gray-300 h-64 w-full shadow-md bg-cover bg-center"
 			/>
 			<div className="w-64 sm:w-56 md:w-64 lg:w-56 bg-white -mt-10 shadow-lg overflow-hidden">
-				<div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+				<div className="py-2 text-center font-bold text-sm uppercase tracking-wide text-gray-800">
 					<a href={url}>
 						{ title }
 					</a>
@@ -167,7 +175,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				</div>
 				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-200 bg-opacity-50">
 					<span className="align-top relative">
-						{/* <StarRatingComponent
+						<StarRatingComponent
 							name="rate1"
 							editing={false}
 							starColor="#ffb400"
@@ -175,18 +183,10 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 							renderStarIcon={(): JSX.Element => <span>★</span>}
 							starCount={5}
 							value={rating}
-						/> */}
-						<StarRatings
-							rating={rating}
-							starRatedColor="#ffb400"
-							numberOfStars={5}
-							starDimension="18px"
-							starSpacing="0px"
-							name="rating"
 						/>
-						<span className="relative top-1/5">{ ` ${reviews}`}</span>
+						<span className="relative bottom-2/5">{ ` ${reviews}`}</span>
 					</span>
-					<span className="text-xs mt-1">{ `${inventory} available` }</span>
+					<span className="text-xs relative bottom-1">{ `${inventory} available` }</span>
 				</div>
 			</div>
 		</div>
@@ -550,9 +550,19 @@ class Home extends React.Component<HomeProps, HomeState> {
 						<h3 className="mb-4">Share this page with your friends.</h3>
 						<div className="px-2">
 							<div className="flex justify-center items-center text-4xl">
-								<Twitter simple link="https://www.amazon.com/range-rover-test-drive" />
-								<Facebook simple link="https://www.amazon.com/range-rover-test-drive" />
-								<Pinterest simple link="https://www.amazon.com/range-rover-test-drive" />
+								<TwitterShareButton url="https://www.amazon.com/range-rover-test-drive">
+									<TwitterIcon size={32} round className="mx-2" />
+								</TwitterShareButton>
+								<FacebookShareButton url="https://www.amazon.com/range-rover-test-drive">
+									<FacebookIcon size={32} round className="mx-2" />
+								</FacebookShareButton>
+								<PinterestShareButton
+									media="https://4mjizk-0zuurdrq4ozj.cloudmaestro.com/d_B-KCRD_/media/logo/stores/2/xLogo.PNG.pagespeed.ic.0G93lUAv7_.png"
+									url="https://www.amazon.com/range-rover-test-drive"
+									className="mx-2"
+								>
+									<PinterestIcon size={32} round />
+								</PinterestShareButton>
 							</div>
 						</div>
 					</div>

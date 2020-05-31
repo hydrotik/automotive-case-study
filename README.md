@@ -21,16 +21,16 @@ npm install -g lighthouse
 Then...
 
 ```bash
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 To deploy static site to Github pages, have a branch setup in Github such as **gh-pages** and run:
 ```bash
-npm run build:gh-pages
+yarn build:gh-pages
 ```
 To deploy to production which includes the API functionality push to master with the Vercel integration, or run:
 ```bash
-npm run build:zeit
+yarn build:zeit
 ```
 To run with nginx (Path relative to User folder):
 ```bash
