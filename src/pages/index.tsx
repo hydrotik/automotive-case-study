@@ -8,7 +8,8 @@ import {
 	Pinterest,
 } from 'react-social-sharing';
 // import { Spring, animated } from 'react-spring';
-import StarRatingComponent from 'react-star-rating-component';
+// import StarRatingComponent from 'react-star-rating-component';
+import StarRatings from 'react-star-ratings';
 import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
@@ -28,6 +29,8 @@ type HomeState = {
 	nearestName: string;
 	vehicles: CarModelProps[];
 	features: FeatureProps[];
+	mapActive: boolean;
+	loadingMap: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -93,10 +96,10 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 				<img className="w-full" src={thumbimage} alt={model} />
 				<div className="px-6 py-4 lg:min-h-16 mb-4 md:mb-0">
 					<div className="font-bold text-xl mb-2">{ model }</div>
-					<p className="text-gray-700 text-base mb-4">
+					<p className="text-gray-800 text-base mb-4">
 						{ shortdescription }
 					</p>
-					<div className="text-gray-600 text-sm mb-2">{ `Starts at $${price}` }</div>
+					<div className="text-gray-700 text-sm mb-2">{ `Starts at $${price}` }</div>
 				</div>
 				<div className="px-6 md:py-4">
 					<a href={exploreurl} target="_blank" rel="noreferrer" className="hover:bg-forestgreendark hover:text-white mb-2 block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2">Explore</a>
@@ -163,7 +166,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				</div>
 				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-400 bg-opacity-50">
 					<span className="align-top relative">
-						<StarRatingComponent
+						{/* <StarRatingComponent
 							name="rate1"
 							editing={false}
 							starColor="#ffb400"
@@ -171,10 +174,18 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 							renderStarIcon={(): JSX.Element => <span>★</span>}
 							starCount={5}
 							value={rating}
+						/> */}
+						<StarRatings
+							rating={rating}
+							starRatedColor="#ffb400"
+							numberOfStars={5}
+							starDimension="18px"
+							starSpacing="0px"
+							name="rating"
 						/>
-						<span className="relative bottom-2/5">{ ` ${reviews}`}</span>
+						<span className="relative top-1/5">{ ` ${reviews}`}</span>
 					</span>
-					<span className="text-xs relative bottom-1/5">{ `${inventory} available` }</span>
+					<span className="text-xs mt-1">{ `${inventory} available` }</span>
 				</div>
 			</div>
 		</div>
@@ -246,15 +257,12 @@ class Home extends React.Component<HomeProps, HomeState> {
 			nearestName: '',
 			vehicles: [],
 			features: [],
+			mapActive: false,
+			loadingMap: false,
 		};
 	}
 
 	async componentDidMount(): Promise<void> {
-		this.getLocationData((lng: number, lat: number) => {
-			const apiPlaceURL = `/api/places?lng=${lng}&lat=${lat}`;
-			this.getNearestDealerData(apiPlaceURL);
-		});
-
 		const apiContentURL = `${process.env.DOMAIN}data/content.json`;
 		this.getContentData(apiContentURL);
 
@@ -262,6 +270,59 @@ class Home extends React.Component<HomeProps, HomeState> {
 		this.setState({
 			tagline,
 		});
+	}
+
+	activateMap = (): void => {
+		this.setState({
+			loadingMap: true,
+		});
+		this.getLocationData((lng: number, lat: number) => {
+			const apiPlaceURL = `/api/places?lng=${lng}&lat=${lat}`;
+			this.getNearestDealerData(apiPlaceURL);
+		});
+	}
+
+	handleMapState = (): JSX.Element => {
+		const {
+			userLat,
+			userLong,
+			nearestLat,
+			nearestLong,
+			mapActive,
+			loadingMap,
+		} = this.state;
+
+		if (!mapActive && loadingMap) {
+			return (
+				<div className="lg:w-1/2 text-center w-full h-full flex justify-center">
+					<span className="lg:mr-24 shadow-xl text-white my-auto flex-none inline-block align-middle">Loading...</span>
+				</div>
+			);
+		}
+
+		if (!mapActive && !loadingMap) {
+			return (
+				<div className="lg:w-1/2 text-center w-full h-full flex justify-center">
+					<button
+						tabIndex={0}
+						onClick={this.activateMap}
+						className="lg:mr-24 shadow-xl my-auto flex-none bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-2 px-4 rounded focus:outline-none border-none"
+					>
+						Find your nearest location
+					</button>
+				</div>
+			);
+		}
+		return (
+			<div className="lg:w-1/2 pl-16 sm:pl-24 md:pl-24 lg:pl-0 mt-24 lg:mt-0 text-right lg:mr-1/3 w-full h-full">
+				<Map
+					userLat={userLat}
+					userLong={userLong}
+					nearestLat={nearestLat}
+					nearestLong={nearestLong}
+				/>
+			</div>
+		);
 	}
 
 	getLocationData = (complete: LocationComplete): void => {
@@ -306,6 +367,8 @@ class Home extends React.Component<HomeProps, HomeState> {
 			nearestLat,
 			nearestLong,
 			nearestName,
+			mapActive: true,
+			loadingMap: false,
 		});
 	}
 
@@ -347,10 +410,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 
 		const {
 			tagline,
-			userLat,
-			userLong,
-			nearestLat,
-			nearestLong,
 			nearestName,
 			vehicles,
 			features,
@@ -362,6 +421,14 @@ class Home extends React.Component<HomeProps, HomeState> {
 				<div className="content-container relative">
 					<div className="top-0 left-0 lg:ml-32 z-10 absolute py-4 px-8 bg-white bg-opacity-50">
 						<img src="images/rr_marker.png" width="100" alt="Land Rover Logo" />
+						{/* <img
+							src="images/rr_marker.png"
+							srcSet="images/rr_marker.png 1x,
+								images/rr_marker.png 2x,
+								images/rr_marker.png 3x,
+								images/rr_marker.png 4x"
+							alt="Land Rover Logo"
+						/> */}
 					</div>
 					<div className="hero-container">
 						<Slider {...settings}>
@@ -381,16 +448,10 @@ class Home extends React.Component<HomeProps, HomeState> {
 							</div>
 							<div className="">
 								<div style={{ ...divStyle, backgroundImage: `url(${'images/636681046005411490KM.jpg'})` }} className="bg-center">
-									<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end">
+									<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end h-full">
 										<div className="lg:w-1/2 hidden lg:visible" />
-										<div className="lg:w-1/2 pl-16 sm:pl-24 md:pl-24 lg:pl-0 mt-24 lg:mt-0 text-right lg:mr-1/3 w-full h-full">
-											<Map
-												userLat={userLat}
-												userLong={userLong}
-												nearestLat={nearestLat}
-												nearestLong={nearestLong}
-											/>
-										</div>
+
+										{ this.handleMapState()}
 									</div>
 								</div>
 							</div>

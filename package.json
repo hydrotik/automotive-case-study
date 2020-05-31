@@ -62,6 +62,7 @@
     "react-social-sharing": "^3.0.1",
     "react-spring": "9.0.0-canary.808.4.e67bf81",
     "react-star-rating-component": "^1.4.1",
+    "react-star-ratings": "^2.3.0",
     "react-text-loop": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "strip-ansi": "^6.0.0",

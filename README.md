@@ -32,6 +32,19 @@ To deploy to production which includes the API functionality push to master with
 ```bash
 npm run build:zeit
 ```
+To run with nginx (Path relative to User folder):
+```bash
+sudo nginx -c ~/path/to/project/automotive-case-study/nginx.conf
+```
+Stop nginx:
+```bash
+sudo nginx -s quit
+```
+
+Start ngrok for sharing (Assuming you have an account and installed and cwd contains ngrok):
+```bash
+./ngrok http 3030
+```
 
 - ```npm run dev``` Run local instance on http://localhost:3000
 - ```npm run build:vercel``` Deploy to production on Vercel
@@ -47,7 +60,7 @@ npm run build:zeit
 - ```npm run lighthouse:prod``` Run Lighthouse analysis on Github Pages
  
  ## Some To Do's
- - [ ] 
+ - [ ] Docker setup
 
 ## License
 

@@ -90,12 +90,14 @@ class EmailSignup extends React.Component<EmailSignupProps, EmailSignupState> {
 				noValidate
 			>
 				<div className="w-2/3 px-2">
+					{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+					<label htmlFor="email-signup" className="hidden">Register for a test drive</label>
 					<input
 						className={inputClass}
 						type="email"
 						placeholder={placeholder}
 						name="email"
-						id="id_email"
+						id="email-signup"
 						autoComplete="off"
 						value={email}
 						onChange={this.handleEmailChange}

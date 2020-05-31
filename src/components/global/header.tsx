@@ -64,7 +64,9 @@ function Header(): JSX.Element {
 
 				<img src="images/search_left.png" width="75" alt="Amazon Logo" className="flex-none flex-shrink-0" />
 
-				<input onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input min-w-0" alt="Amazon Logo" />
+				{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+				<label htmlFor="search" className="hidden">Search</label>
+				<input id="search" onChange={handleChange} className="flex-grow border-none focus-none pd-0 m-0 text-l search-input min-w-0" alt="Search" />
 
 				<button
 					onClick={handleSearchClick}
@@ -83,6 +85,7 @@ function Header(): JSX.Element {
 					src="images/nav_right.png"
 					alt="Amazon navigation"
 					width="350"
+					height="60"
 				/>
 
 			</header>
