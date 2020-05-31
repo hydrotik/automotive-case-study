@@ -1,5 +1,4 @@
 import React, { createRef } from 'react';
-import CSS from 'csstype';
 import dynamic from 'next/dynamic';
 // import {
 // 	Twitter,
@@ -406,15 +405,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 			prevArrow: <SamplePrevArrow />,
 		};
 
-		const divStyle: CSS.Properties = {
-			backgroundRepeat: 'no-repeat',
-			backgroundSize: 'cover',
-			boxSizing: 'border-box',
-			width: '100%',
-			height: '500px',
-			backgroundColor: '#434343',
-		};
-
 		const {
 			tagline,
 			nearestName,
@@ -440,7 +430,18 @@ class Home extends React.Component<HomeProps, HomeState> {
 					<div className="hero-container">
 						<Slider {...settings}>
 							<div className="relative">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636796262266615614VS.jpg'})` }} className="bg-right">
+								<div
+									style={{
+										backgroundPosition: 'right',
+										backgroundRepeat: 'no-repeat',
+										backgroundSize: 'cover',
+										boxSizing: 'border-box',
+										width: '100%',
+										height: '500px',
+										backgroundColor: '#434343',
+										backgroundImage: `url(${'images/636796262266615614VS.jpg'})`,
+									}}
+								>
 									<div className="flex content-end flex-wrap">
 										<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
 											<h2 className="text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
@@ -454,7 +455,18 @@ class Home extends React.Component<HomeProps, HomeState> {
 								</div>
 							</div>
 							<div className="">
-								<div style={{ ...divStyle, backgroundImage: `url(${'images/636681046005411490KM.jpg'})` }} className="bg-center">
+								<div
+									style={{
+										backgroundPosition: 'center',
+										backgroundRepeat: 'no-repeat',
+										backgroundSize: 'cover',
+										boxSizing: 'border-box',
+										width: '100%',
+										height: '500px',
+										backgroundColor: '#434343',
+										backgroundImage: `url(${'images/636681046005411490KM.jpg'})`,
+									}}
+								>
 									<div className="m-auto flex content-end flex-wrap lg:ml-48 lg:p-12 lg:justify-end h-full">
 										<div className="lg:w-1/2 hidden lg:visible" />
 
