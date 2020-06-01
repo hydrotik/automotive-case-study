@@ -604,7 +604,11 @@ class Home extends React.Component<HomeProps, HomeState> {
 								<a
 									href="https://www.amazon.com/LEGO-Technic-Defender-Building-Overbox/dp/B07VFDRT8B/"
 								>
-									<img src="images/xlr_LEGO_NewDefender90_profile_D.jpg.pagespeed.ic.5mc54arMVF.jpg" width="100%" alt="Range Rover Gear" />
+									<picture>
+										<source srcSet="images/xlr_LEGO_NewDefender90_profile_D.jpg.pagespeed.ic.5mc54arMVF.webp" type="image/webp" />
+										<source srcSet="images/xlr_LEGO_NewDefender90_profile_D.jpg.pagespeed.ic.5mc54arMVF.jpg" type="image/jpeg" />
+										<img src="images/xlr_LEGO_NewDefender90_profile_D.jpg.pagespeed.ic.5mc54arMVF.jpg" width="100%" alt="Range Rover Gear" />
+									</picture>
 								</a>
 							</div>
 							<div className="p-8 text-center py-16">
