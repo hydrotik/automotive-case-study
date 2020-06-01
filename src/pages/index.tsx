@@ -293,7 +293,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						onClick={this.activateMap}
 						className="lg:mr-24 shadow-xl my-auto flex-none bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-2 px-4 rounded focus:outline-none border-none"
 					>
-						Find your nearest location
+						Find your nearest dealer
 					</button>
 				</div>
 			);
