@@ -1,10 +1,5 @@
 import React, { createRef } from 'react';
 import dynamic from 'next/dynamic';
-// import {
-// 	Twitter,
-// 	Facebook,
-// 	Pinterest,
-// } from 'react-social-sharing';
 import {
 	FacebookShareButton,
 	FacebookIcon,
@@ -21,16 +16,16 @@ import {
 	ButtonNext,
 } from 'pure-react-carousel';
 import ReactLoading from 'react-loading';
-// import { Spring, animated } from 'react-spring';
 import StarRatingComponent from 'react-star-rating-component';
-// import StarRatings from 'react-star-ratings';
 import Layout from '../components/global/layout';
 import EmailSignup from '../components/ui/EmailSignup';
 import { numberWithCommas, currency } from '../utils/Numbers';
 
-// const Slider = dynamic(() => import('react-slick'), { ssr: false });
 const Map = dynamic(() => import('../components/ui/Map'), { ssr: false });
 
+/*
+	Index/Home Prop/State Types
+*/
 
 type HomeProps = {
 }
@@ -48,41 +43,41 @@ type HomeState = {
 	loadingMap: boolean;
 }
 
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const SampleNextArrow = (props: any): JSX.Element => {
-// 	const { onClick } = props;
-// 	const nullClick = (): null => null;
-// 	return (
-// 		<div
-// 			className="arrow arrow--right slick-next"
-// 			tabIndex={0}
-// 			role="button"
-// 			aria-label="Slide Right"
-// 			onClick={onClick}
-// 			onKeyDown={nullClick}
-// 		>
-// 			<span />
-// 		</div>
-// 	);
-// };
+/*
+	Testdrive CTA Function Component
+*/
 
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const SamplePrevArrow = (props: any): JSX.Element => {
-// 	const { onClick } = props;
-// 	const nullClick = (): null => null;
-// 	return (
-// 		<div
-// 			className="arrow arrow--left slick-prev"
-// 			tabIndex={-1}
-// 			role="button"
-// 			aria-label="Slide Left"
-// 			onClick={onClick}
-// 			onKeyDown={nullClick}
-// 		>
-// 			<span />
-// 		</div>
-// 	);
-// };
+type TestDriveCTAProps = {
+	nearestName: string;
+	tagline: string;
+}
+
+const TestDriveCTA = (props: TestDriveCTAProps): JSX.Element => {
+	const {
+		nearestName,
+		tagline,
+	} = props;
+
+	if (nearestName === '') {
+		return (
+			<>
+				{` ${tagline}.`}
+			</>
+		);
+	}
+	return (
+		<>
+			{` ${tagline} `}
+			with
+			<br />
+			{ ` ${nearestName}` }
+		</>
+	);
+};
+
+/*
+	Car Model Function Component
+*/
 
 type CarModelProps = {
 	key: string;
@@ -125,6 +120,10 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 		</div>
 	);
 };
+
+/*
+	Featured Product Function Component
+*/
 
 type FeatureProps = {
 	key: string;
@@ -199,38 +198,9 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 	);
 };
 
-
-type TestCTAProps = {
-	nearestName: string;
-	tagline: string;
-}
-
-const TestCTA = (props: TestCTAProps): JSX.Element => {
-	const {
-		nearestName,
-		tagline,
-	} = props;
-
-	if (nearestName === '') {
-		return (
-			<>
-				{` ${tagline}.`}
-			</>
-		);
-	}
-	return (
-		<>
-			{` ${tagline} `}
-			with
-			<br />
-			{ ` ${nearestName}` }
-		</>
-	);
-};
-interface RefObject<T> {
-	// immutable
-	readonly current: T | null;
-}
+/*
+	API/Callback Interfaces/Prop Types
+*/
 
 interface PositionCallback {
 	(position: LocationResponseProps): void;
@@ -247,7 +217,9 @@ type LocationResponseProps = {
 	};
 }
 
-// const urlParallax = (name: string, wrap = false): string => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`;
+/*
+	Main Home/Index Class
+*/
 
 class Home extends React.Component<HomeProps, HomeState> {
 	private parallax = createRef();
@@ -270,7 +242,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 	}
 
 	async componentDidMount(): Promise<void> {
-		const apiContentURL = `${process.env.DOMAIN}data/content.json`;
+		const apiContentURL = '/data/content.json';
 		this.getContentData(apiContentURL);
 
 		const tagline = 'Register to take the ride of your life';
@@ -400,18 +372,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 	}
 
 	render(): JSX.Element {
-		// const settings = {
-		// 	accessibility: false,
-		// 	dots: false,
-		// 	infinite: true,
-		// 	speed: 500,
-		// 	autoplay: false,
-		// 	slidesToShow: 1,
-		// 	slidesToScroll: 1,
-		// 	nextArrow: <SampleNextArrow />,
-		// 	prevArrow: <SamplePrevArrow />,
-		// };
-
 		const {
 			tagline,
 			nearestName,
@@ -425,17 +385,8 @@ class Home extends React.Component<HomeProps, HomeState> {
 				<div className="content-container relative">
 					<div className="top-0 left-0 lg:ml-32 z-10 absolute py-4 px-8 bg-white bg-opacity-50">
 						<img src="images/rr_marker.png" width="100" alt="Land Rover Logo" />
-						{/* <img
-							src="images/rr_marker.png"
-							srcSet="images/rr_marker.png 1x,
-								images/rr_marker.png 2x,
-								images/rr_marker.png 3x,
-								images/rr_marker.png 4x"
-							alt="Land Rover Logo"
-						/> */}
 					</div>
 					<div className="hero-container">
-
 						<CarouselProvider
 							naturalSlideWidth={100}
 							naturalSlideHeight={100}
@@ -443,7 +394,9 @@ class Home extends React.Component<HomeProps, HomeState> {
 							totalSlides={2}
 							className="relative"
 						>
-							<Slider>
+							<Slider
+								classNameAnimation="c-animation"
+							>
 								<Slide index={0}>
 									<div className="relative">
 										<div
@@ -505,66 +458,12 @@ class Home extends React.Component<HomeProps, HomeState> {
 								<img src="images/next.svg" alt="Next Button" />
 							</ButtonNext>
 						</CarouselProvider>
-
-						{/* <Slider {...settings}>
-							<div className="relative">
-								<div
-									style={{
-										backgroundPosition: 'right',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: 'cover',
-										boxSizing: 'border-box',
-										width: '100%',
-										height: '500px',
-										backgroundColor: '#434343',
-										backgroundImage: `url(${'images/636796262266615614VS.jpg'})`,
-									}}
-								>
-									<div className="flex content-end flex-wrap">
-										<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
-											<h2
-												className="text-black lg:bg-white py-8 p-8 lg:mt-24
-												lg:ml-8 lg:bg-opacity-50 lg:w-2/3"
-											>
-												Sign up for a contactless
-												<br />
-												test drive.
-											</h2>
-										</div>
-										<div className="lg:w-1/2 text-center hidden lg:visible" />
-									</div>
-								</div>
-							</div>
-							<div className="">
-								<div
-									style={{
-										backgroundPosition: 'center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: 'cover',
-										boxSizing: 'border-box',
-										width: '100%',
-										height: '500px',
-										backgroundColor: '#434343',
-										backgroundImage: `url(${'images/636681046005411490KM.jpg'})`,
-									}}
-								>
-									<div
-										className="m-auto flex content-end flex-wrap
-										lg:ml-48 lg:p-12 lg:justify-end h-full"
-									>
-										<div className="lg:w-1/2 hidden lg:visible" />
-
-										{ this.handleMapState()}
-									</div>
-								</div>
-							</div>
-						</Slider> */}
 					</div>
 
 					<div className="w-full max-w-6xl p-4 mx-auto md:px-8 md:py-16 justify-center items-center">
 						<div className="w-full mb-4 text-center justify-center items-center">
 							<h1 className="my-8 text-lg md:text-2xl">
-								<TestCTA
+								<TestDriveCTA
 									tagline={tagline}
 									nearestName={nearestName}
 								/>
@@ -666,36 +565,6 @@ class Home extends React.Component<HomeProps, HomeState> {
 							</div>
 						</div>
 					</div>
-
-					{/* <Spring
-						native
-						from={{ y: 0 }}
-						to={{ y: 20 }}
-					>
-						{({ y }): JSX.Element => (
-							<animated.div
-								style={{
-									// If you can, use plain animated values like always, ...
-									// You would do that in all cases where values "just fit"
-									transform: y?.interpolate((dy) => `translateY(${dy}px`),
-									backgroundImage: `url(${'images/15232292419_af49a4e0f3_o.jpg'})`,
-									backgroundRepeat: 'no-repeat',
-									backgroundSize: 'cover',
-									width: '100%',
-									height: '100%',
-									zIndex: -1,
-									position: 'absolute',
-									top: 0,
-									bottom: 0,
-									left: 0,
-									right: 0,
-									opacity: '15%',
-								}}
-							>
-								Hello
-							</animated.div>
-						)}
-					</Spring> */}
 				</div>
 			</Layout>
 		);

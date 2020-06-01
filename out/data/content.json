@@ -1,0 +1,82 @@
+{
+    "content" : {
+        "vehicles" : [
+            {
+                "key" : "vehicle-1",
+                "model" : "SE",
+                "price" : 68650,
+                "shortdescription" : "The SE offers a 3.0-liter, Inline 6 Turbocharged Gas or 3.0-liter TDV6 Diesel engine, delivering high performance with impressive efficiency.",
+                "thumbimage" : "/images/636510886283785101XB.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/se/index.html",
+                "buildurl" : "https://buildyour.landroverusa.com/lr2/r/exterior/paint/en_us/l494_k205/47rad/a-ad494_a-se/",
+                "accessories" : "https://www.amazon.com/s?k=Range+Rover+SE+accessories&s=review-rank&sprefix=Range+Rover+SE"
+            },
+            {
+                "key" : "vehicle-2",
+                "model" : "HSE",
+                "price" : 74250,
+                "shortdescription" : "The HSE builds on all of the standard features of the SE and includes an even broader array of interior and exterior accoutrements from the top down.",
+                "thumbimage" : "/images/636681047629647633AK.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/hse/index.html",
+                "buildurl" : "https://buildyour.landroverusa.com/lr2/r/exterior/paint/en_us/l494_k205/47rad/a-ad494_a-hse/",
+                "accessories" : "https://www.amazon.com/s?k=Range+Rover+HSE+accessories&s=review-rank&sprefix=Range+Rover+HSE"
+            },
+            {
+                "key" : "vehicle-3",
+                "model" : "HST",
+                "price" : 82950,
+                "shortdescription" : "A Black contrast roof and Black Pack add to the vehicle’s sportier feel. Featuring stylish Windsor leather seating with suedecloth bolsters, combined with matching steering wheel and gearshift.",
+                "thumbimage" : "/images/636801563968392561QF.jpg",
+                "exploreurl" : "https://www.landroverusa.com/vehicles/range-rover-sport/hst/index.html",
+                "buildurl" : "https://buildyour.landroverusa.com/lr2/r/exterior/paint/en_us/l494_k205/47rad/a-ae494-400_a-hst/",
+                "accessories" : "https://www.amazon.com/s?k=Range+Rover+HST+accessories&s=review-rank&sprefix=Range+Rover+HST"
+            }
+        ],
+        "features" : [
+            {
+                "key" : "feature-1",
+                "title" : "Windshield Sunshade",
+                "price" : 69.00,
+                "thumbimage" : "images/product1.jpg",
+                "url" : "https://www.amazon.com/GENUINE-ACCESSORY-WINDSHIELD-SUNSHADE-VPLWS0231/dp/B00L5LQGJM",
+                "prime" : true,
+                "inventory" : 7,
+                "rating" : 4,
+                "reviews" : 2
+            },
+            {
+                "key" : "feature-2",
+                "title" : "Men's Field Jacket",
+                "price" : 149.00,
+                "thumbimage" : "images/product2.jpg",
+                "url" : "https://www.amazon.com/Land-Rover-Official-Merchandise-Heritage/dp/B06Y4Z87FV",
+                "prime" : false,
+                "inventory" : 19,
+                "rating" : 5,
+                "reviews" : 3
+            },
+            {
+                "key" : "feature-3",
+                "title" : "Women's Adventure Tee",
+                "price" : 19.20,
+                "thumbimage" : "images/product3.jpg",
+                "url" : "https://www.amazon.com/Land-Rover-Official-Merchandise-Adventure/dp/B06Y575S1B",
+                "prime" : true,
+                "inventory" : 7,
+                "rating" : 4.5,
+                "reviews" : 8
+            },
+            {
+                "key" : "feature-4",
+                "title" : "70th Jubilee Sweatshirt ",
+                "price" : 29.20,
+                "thumbimage" : "images/product4.jpg",
+                "url" : "https://www.amazon.com/Land-Rover-Official-Merchandise-Sweatshirt/dp/B07GL494X5",
+                "prime" : false,
+                "inventory" : 19,
+                "rating" : 4,
+                "reviews" : 5
+            }
+        ]
+    }
+}
