@@ -9,7 +9,7 @@
 - **Lighthouse** Performance and a11y tool
 - lodash, moment.js
 
-A quick and simple POC that consists of a collection of tools for me to test out some project boilerplate.
+A quick and simple POC that consists of a collection of tools for me to test out some project boilerplate. Need a Google API key that has acccess to map services.
 
 Need Lighthouse CLI installed first:
 ```bash
