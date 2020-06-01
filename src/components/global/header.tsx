@@ -34,8 +34,8 @@ function Header(): JSX.Element {
 					{`
 					@font-face {
 						font-family: 'amazon_emberbold';
-						src: url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_bd-46b91bda68161c14e554a779643ef4957431987b._V2_.woff2') format('woff2'),
-							url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_bd-46b91bda68161c14e554a779643ef4957431987b._V2_.woff') format('woff');
+						src: url('fonts/amazonember_bd-webfont.woff2') format('woff2'),
+							url('fonts/amazonember_bd-webfont.woff') format('woff');
 						font-weight: normal;
 						font-style: normal;
 					
@@ -43,8 +43,8 @@ function Header(): JSX.Element {
 
 					@font-face {
 						font-family: 'amazon_emberregular';
-						src: url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_rg-cc7ebaa05a2cd3b02c0929ac0475a44ab30b7efa._V2_.woff2') format('woff2'),
-							url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIFont-amazonember_rg-cc7ebaa05a2cd3b02c0929ac0475a44ab30b7efa._V2_.woff') format('woff');
+						src: url('fonts/amazonember_rg-webfont.woff2') format('woff2'),
+							url('fonts/amazonember_rg-webfont.woff') format('woff');
 						font-weight: normal;
 						font-style: normal;
 					
