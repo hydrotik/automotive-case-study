@@ -121,7 +121,7 @@ function Header(): JSX.Element {
 					</li>
 				</ul>
 				<div className="flex-grow" />
-				<img src="images/subhead_right.png" width="227" alt="Amazon promo navigation" className="md:flex flex-col md:justify-right" />
+				<img src="images/subhead_right.png" width="227" alt="Amazon promo navigation" className="hidden sm:flex md:flex lg:flex flex-col md:justify-right" />
 			</nav>
 		</header>
 	);

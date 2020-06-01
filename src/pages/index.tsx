@@ -460,7 +460,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 										>
 											<div className="flex content-end flex-wrap">
 												<div className="lg:w-1/2 text-right lg:text-center lg:p-24 w-full h-full">
-													<h2 className="text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
+													<h2 className="text-sm lg:text-lg text-black lg:bg-white py-8 p-8 lg:mt-24 lg:ml-8 lg:bg-opacity-50 lg:w-2/3">
 														Sign up for a contactless
 														<br />
 														test drive.
