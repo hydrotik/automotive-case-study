@@ -48,41 +48,41 @@ type HomeState = {
 	loadingMap: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SampleNextArrow = (props: any): JSX.Element => {
-	const { onClick } = props;
-	const nullClick = (): null => null;
-	return (
-		<div
-			className="arrow arrow--right slick-next"
-			tabIndex={0}
-			role="button"
-			aria-label="Slide Right"
-			onClick={onClick}
-			onKeyDown={nullClick}
-		>
-			<span />
-		</div>
-	);
-};
+// // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// const SampleNextArrow = (props: any): JSX.Element => {
+// 	const { onClick } = props;
+// 	const nullClick = (): null => null;
+// 	return (
+// 		<div
+// 			className="arrow arrow--right slick-next"
+// 			tabIndex={0}
+// 			role="button"
+// 			aria-label="Slide Right"
+// 			onClick={onClick}
+// 			onKeyDown={nullClick}
+// 		>
+// 			<span />
+// 		</div>
+// 	);
+// };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SamplePrevArrow = (props: any): JSX.Element => {
-	const { onClick } = props;
-	const nullClick = (): null => null;
-	return (
-		<div
-			className="arrow arrow--left slick-prev"
-			tabIndex={-1}
-			role="button"
-			aria-label="Slide Left"
-			onClick={onClick}
-			onKeyDown={nullClick}
-		>
-			<span />
-		</div>
-	);
-};
+// // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// const SamplePrevArrow = (props: any): JSX.Element => {
+// 	const { onClick } = props;
+// 	const nullClick = (): null => null;
+// 	return (
+// 		<div
+// 			className="arrow arrow--left slick-prev"
+// 			tabIndex={-1}
+// 			role="button"
+// 			aria-label="Slide Left"
+// 			onClick={onClick}
+// 			onKeyDown={nullClick}
+// 		>
+// 			<span />
+// 		</div>
+// 	);
+// };
 
 type CarModelProps = {
 	key: string;
@@ -327,7 +327,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 			);
 		}
 		return (
-			<div className="lg:w-1/2 pl-16 sm:pl-24 md:pl-24 lg:pl-0 mt-24 lg:mt-0 text-right lg:mr-1/3 w-full h-full">
+			<div className="lg:w-1/2 pl-16 sm:pl-24 md:pl-24 pt-24 md:pt-24 lg:pt-0 lg:pl-0 lg:mt-0 text-right lg:mr-1/3 w-full h-full">
 				<Map
 					userLat={userLat}
 					userLong={userLong}
@@ -438,8 +438,10 @@ class Home extends React.Component<HomeProps, HomeState> {
 
 						<CarouselProvider
 							naturalSlideWidth={100}
-							naturalSlideHeight={125}
-							totalSlides={3}
+							naturalSlideHeight={100}
+							isIntrinsicHeight
+							totalSlides={2}
+							className="relative"
 						>
 							<Slider>
 								<Slide index={0}>
@@ -492,8 +494,16 @@ class Home extends React.Component<HomeProps, HomeState> {
 									</div>
 								</Slide>
 							</Slider>
-							<ButtonBack><SamplePrevArrow /></ButtonBack>
-							<ButtonNext><SampleNextArrow /></ButtonNext>
+							<ButtonBack
+								className="arrow-container arrow--left"
+							>
+								<img src="images/back.svg" alt="Back Button" />
+							</ButtonBack>
+							<ButtonNext
+								className="arrow-container arrow--right"
+							>
+								<img src="images/next.svg" alt="Next Button" />
+							</ButtonNext>
 						</CarouselProvider>
 
 						{/* <Slider {...settings}>
