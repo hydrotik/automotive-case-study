@@ -41,6 +41,7 @@
     "@zeit/next-sass": "^1.0.1",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
+    "gifsicle": "^5.1.0",
     "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
