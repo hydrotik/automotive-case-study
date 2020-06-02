@@ -7,7 +7,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const purgecss = require('@fullhuman/postcss-purgecss');
-const optimizedImages = require('next-optimized-images');
+const withOptimizedImages = require('next-optimized-images');
 const env = require('dotenv').config();
 
 const isProd = (process.env.NODE_ENV || 'production') === 'production';
@@ -20,7 +20,7 @@ console.log(`production: ${isProd}`);
 console.log(`GH Pages: ${isGHProd}`);
 console.log(`Vercel: ${isVercel}`);
 
-module.exports = {
+module.exports = withOptimizedImages({
 	env: {
 		GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
 		DOMAIN: domain,
@@ -53,4 +53,4 @@ module.exports = {
 		});
 		return config;
 	},
-};
+});

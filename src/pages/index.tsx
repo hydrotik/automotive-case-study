@@ -103,7 +103,11 @@ const CarModelItem = (props: CarModelProps): JSX.Element => {
 	return (
 		<div className="w-full lg:w-1/3 md:px-2 mb-20 md:mb-10 lg:mb-0">
 			<div className="md:overflow-hidden md:shadow-lg bg-white">
-				<img className="w-full" src={thumbimage} alt={model} />
+				<picture>
+					<source srcSet={`${thumbimage}?webp`} type="image/webp" />
+					<source srcSet={thumbimage} type="image/jpeg" />
+					<img className="w-full" src={thumbimage} alt={model} />
+				</picture>
 				<div className="px-6 py-4 lg:min-h-16 mb-4 md:mb-0">
 					<div className="font-bold text-xl mb-2">{ model }</div>
 					<p className="text-gray-800 text-base mb-4">
