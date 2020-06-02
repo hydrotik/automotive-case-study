@@ -511,7 +511,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 								</a>
 							</div>
 							<div className="p-8 text-center py-16">
-								<p className="mb-8">Get official Range Rover branded gear on Amazon</p>
+								<p className="mb-8">Get official Land Rover branded gear on Amazon</p>
 								<a
 									href="https://www.amazon.com/stores/Land+Rover/page/897DDE0C-BEFA-4079-ACE5-08525C8AEA2A"
 									className="mt-4 bg-forestgreenlight hover:bg-forestgreendark text-white font-bold py-2 px-4 rounded"
