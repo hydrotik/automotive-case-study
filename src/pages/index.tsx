@@ -181,7 +181,7 @@ const FeatureItem = (props: FeatureProps): JSX.Element => {
 				<div className="text-sm text-gray-700 flex items-center justify-between py-2 px-3 bg-gray-200 bg-opacity-50">
 					<span className="align-top relative">
 						<StarRatingComponent
-							name="rate1"
+							name={title.replace(/'/g, '').replace(/ /g, '').toLowerCase()}
 							editing={false}
 							starColor="#ffb400"
 							emptyStarColor="#aaaaaa"
@@ -396,6 +396,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						>
 							<Slider
 								classNameAnimation="c-animation"
+								aria-label="Feature hero content"
 							>
 								<Slide index={0}>
 									<div className="relative">
