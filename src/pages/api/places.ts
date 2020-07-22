@@ -2,18 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const getData = async (url: string): Promise<object> => {
-	// const response = await fetch(url).then((res: any) => (
-	// 	res.json() // download the body as JSON
-	// )).then((body: any) => {
-	// 	console.log(`got ${body} from web`);
-	// 	return fetch(url, {
-	// 		cache: 'no-cache', // forces a conditional request
-	// 	});
-	// }).then((res: any) => {
-	// 	console.log(res.status); // 304! cache validated!
-	// 	return res.json();
-	// });
-
 	const response = await fetch(url);
 	const data = await response.json();
 

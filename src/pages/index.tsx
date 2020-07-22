@@ -527,7 +527,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						</div>
 					</div>
 
-					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 justify-center items-center mb-20">
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 justify-center items-center mb-20">
 
 						<div className="px-2">
 							<div className="flex -mx-2 flex-wrap">
@@ -549,7 +549,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 						</div>
 					</div>
 
-					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 md:py-16 text-center align-center mb-48">
+					<div className="w-full max-w-6xl p-4 lg:p-1 mx-auto md:px-8 md:py-16 text-center align-center mb-48">
 						<h2 className="mb-4">Share</h2>
 						<h3 className="mb-4">Share this page with your friends.</h3>
 						<div className="px-2">
