@@ -116,7 +116,7 @@
     "jsdom": "^16.2.2",
     "leaked-handles": "^5.2.0",
     "next-optimized-images": "^2.6.1",
-    "npm": "^6.14.5",
+    "npm": "^11.8.0",
     "nyc": "^15.0.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
